@@ -3,7 +3,7 @@ module.exports = {
         const {name, description, price, image_url} = req.body;
         const db = req.app.get('db')
 
-        db.create_product({name, description, price, image_url})
+        db.create_product(name, description, price, image_url)
         .then(() => res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Something went wrong!'}));
     },
@@ -27,7 +27,7 @@ module.exports = {
         const {desc} = req.query;
         const db = req.app.get('db')
 
-        db.update_product({id, desc})
+        db.update_product(id, desc)
         .then(() => res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Something went wrong!'}));
     },

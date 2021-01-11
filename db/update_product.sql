@@ -1,3 +1,3 @@
 update products
-set description = ${desc}
-where product_id = ${id};
+set description = $2
+where product_id = $1;
